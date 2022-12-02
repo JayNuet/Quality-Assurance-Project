@@ -8,6 +8,9 @@ Names: Jabez Nuetey, Michael Gerges, Shabura Daniel
 #include <cmath>
 #include <iomanip>
 #include "data.h"
+#include "shoppingManagement.h"
+
+
 
 using namespace std;
 

@@ -20,6 +20,10 @@ string customersFile = "customers.txt";
 string productsFile = "products.txt";
 string transactionsFile = "transactions.txt";
 
+void customerMenu(Data &data, Structures::Customer &currentUser);
+void shoppingMenu(Data &data, Structures::Customer &currentUser);
+void rewardsMenu(Data &data, Structures::Customer &currentUser);
+
 
 bool ReadFileData(Data &data, string filePath)
 {
