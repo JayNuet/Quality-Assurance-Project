@@ -8,8 +8,6 @@ Names: Jabez Nuetey, Michael Gerges, Shabura Daniel
 #include <cmath>
 #include <iomanip>
 #include "data.h"
-#include "shoppingManagement.h"
-
 
 
 using namespace std;
@@ -218,7 +216,7 @@ public:
         }
     }
 
-    void list_available_products(Data &data, ShopHandler &shop, vector<Structures::Product> &availableProducts)
+    void list_available_products(Data &data, vector<Structures::Product> &availableProducts)
     {
         for (auto product : data.productData)
         {

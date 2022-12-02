@@ -184,7 +184,7 @@ void shoppingMenu(Data &data, Structures::Customer &currentUser)
     bool running = true;
     while (running)
     {
-        prods.list_available_products(data, shopSession, availableProducts);
+        prods.list_available_products(data, availableProducts);
         cout << "\n";
         int selection;
         cout << "\n"
