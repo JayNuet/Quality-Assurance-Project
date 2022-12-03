@@ -15,6 +15,12 @@ class productHandler
 {
 public:
 
+
+    /**
+     * registers a new product
+     * @param data a reference to the data object for the program
+     * @return void
+    */
     void addProduct(Data &data)
     {
         Structures::Product newProduct;
@@ -26,6 +32,12 @@ public:
         data.productData.push_back(newProduct);
     }
 
+
+    /**
+     * generates a new unique product id
+     * @param data a reference to the data object for the program
+     * @return string that represents the new product id
+    */
     string generate_product_id(Data &data)
     {
         string id = "";
@@ -38,6 +50,13 @@ public:
         return validate_product_id(data, "P" + id);
     }
 
+
+    /**
+     * validates the product id
+     * @param data a reference to the data object for the program
+     * @param id string that represents the product id
+     * @return string that represents the new product id
+    */
     string validate_product_id(Data &data, string id)
     {
         bool valid = none_of(data.productData.begin(), data.productData.end(), [&id](Structures::Product product)
@@ -52,6 +71,12 @@ public:
         }
     }
 
+
+    /**
+     * inputs the product name
+     * @param data a reference to the data object for the program
+     * @return string that represents the product name
+    */
     string input_product_name(Data &data)
     {
         string input;
@@ -68,6 +93,13 @@ public:
         }
     }
 
+
+    /**
+     * validates the product name
+     * @param data a reference to the data object for the program
+     * @param product_name string that represents the product name
+     * @return bool that represents whether the product name is valid
+    */
     bool validate_product_name(Data &data, string product_name)
     {
         regex name_matcher = regex("^([a-zA-Z0-9_]+)$");
@@ -97,6 +129,11 @@ public:
         }
     }
 
+
+    /**
+     * inputs the product price
+     * @return double that represents the product price
+    */
     double input_product_price()
     {
         string input;
@@ -122,6 +159,12 @@ public:
         }
     }
 
+
+    /**
+     * validates the product price
+     * @param product_price string that represents the product price
+     * @return bool that represents whether the product price is valid  
+    */
     bool validate_product_price(string product_price)
     {
         regex numbers_matcher = regex("^([0-9]+.[0-9]{2})$");
@@ -136,6 +179,11 @@ public:
         }
     }
 
+
+    /**
+     * inputs the product quantity
+     * @return int that represents the product quantity
+    */
     int input_product_quantity()
     {
         string input;
@@ -162,6 +210,12 @@ public:
     }
 
 
+
+    /**
+     * validates the product quantity
+     * @param product_quantity string that represents the product quantity
+     * @return bool that represents whether the product quantity is valid
+    */
     bool validate_product_quantity(string product_quantity)
     {
         regex numbers_matcher = regex("^[0-9]+$");
@@ -176,6 +230,11 @@ public:
         }
     }
 
+
+    /**
+     * inputs the product reward amount
+     * @return int that represents the product reward amount
+    */
     int input_product_reward_amount()
     {
         string input;
@@ -201,6 +260,12 @@ public:
         }
     }
 
+
+    /**
+     * validates the product reward amount
+     * @param product_reward_amount string that represents the product reward amount
+     * @return bool that represents whether the product reward amount is valid
+    */
     bool validate_product_reward_amount(string product_reward_amount)
     {
         regex numbers_matcher = regex("^[0-9]+$");
@@ -215,6 +280,14 @@ public:
         }
     }
 
+
+    /**
+     * displays all currently avaiable products in the system
+     * @param data a reference to the data object for the program
+     * @param shopSession a reference to the shopSession object for the program
+     * @param availableProducts a vector of products that are available to be added to the cart
+     * @return void
+    */
     void list_available_products(Data &data, ShopHandler &shopSession, vector<Structures::Product> &availableProducts)
     {
         availableProducts = shopSession.getAvaliableProducts(data);
@@ -225,6 +298,12 @@ public:
         }
     }
 
+
+    /**
+     * removes a product from the system
+     * @param data a reference to the data object for the program
+     * @return void
+    */
     void remove_product(Data &data)
     {
         string currentInput;

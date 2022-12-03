@@ -19,6 +19,12 @@ public:
     vector<Structures::Transaction> transactionData;
 
 
+
+    /**
+     * reads in customer data from a file
+     * @param parsefile the file to read from
+     * @return a vector of customer objects
+    */
     vector<Structures::Customer> customerList(ifstream &parseFile)
     {
         string line;
@@ -73,6 +79,11 @@ public:
     }
 
 
+    /**
+     * reads in transaction data from a file
+     * @param parsefile the file to read from
+     * @return a vector of transaction objects
+    */
     vector<Structures::Transaction> transactionList(ifstream &parseFile)
     {
         string line;
@@ -119,6 +130,13 @@ public:
     }
 
 
+
+    /**
+     * reads in product data from a file
+     * @param parsefile the file to read from
+     * @return a vector of product objects
+     * 
+    */
     vector<Structures::Product> productList(ifstream &parseFile)
     {
         string line;
@@ -186,6 +204,13 @@ private:
     regex transactionRewardsRegex = regex("Total reward points ");
 
 
+
+    /**
+     * getes the last value of a line
+     * @param valueString the string to parse
+     * @param delimiter the delimiter to use
+     * @return the last value of the string
+    */
     string getLastValue(string valueString, string delimiter = " ")
     {
         vector<string> elems;
@@ -218,6 +243,13 @@ class Writer
 {
 public:
 
+
+    /**
+     * writes customer data to a file
+     * @param customerData a vector of customer objects
+     * @param writeFile the file to write to
+     * @return void
+    */
     void customerList(vector<Structures::Customer> customerData, ofstream &writeFile)
     {
         if (writeFile.is_open())
@@ -242,6 +274,13 @@ public:
         return;
     }
 
+
+    /**
+     * writes transaction data to a file
+     * @param transactionData a vector of transaction objects
+     * @param writeFile the file to write to
+     * @return void
+    */
 
     void transactionList(vector<Structures::Transaction> transactionData, ofstream &writeFile)
     {
@@ -272,6 +311,13 @@ public:
         return;
     }
 
+
+    /**
+     * writes product data to a file
+     * @param productData a vector of product objects
+     * @param writeFile the file to write to
+     * @return void
+    */
 
     void productList(vector<Structures::Product> productData, ofstream &writeFile)
     {

@@ -54,6 +54,12 @@ public:
     vector<Structures::Transaction> transactionData;
 
 
+    
+    /**
+     * find customer by id
+     * @param id string that represents the id of the customer
+     * @return the customer object if found, otherwise returns an empty customer object
+     */
     Structures::Customer findCustomerById(string id)
     {
         auto vectorSearch = find_if(begin(customerData), end(customerData),
@@ -73,6 +79,12 @@ public:
         }
     }
 
+
+    /**
+     * find product by id
+     * @param id string that represents the id of the product
+     * @return the product object if found, otherwise returns an empty product object
+     */
 
     Structures::Product findProductById(string id)
     {
@@ -94,6 +106,14 @@ public:
     }
 
 
+
+    /**
+     * adjusts that quantity of the product in stock by a given amount
+     * @param id string that represents the id of the product
+     * @param amount int that represents the amount to adjust the quantity by
+     * @return void
+     */
+    
     void adjustStock(string id, int adjustAmount)
     {
         vector<Structures::Product>::iterator it;
@@ -112,6 +132,13 @@ public:
     }
 
 
+    /**
+     * adjusts the reward points of a customer by a given amount
+     * @param id string that represents the id of the customer
+     * @param amount int that represents the amount to adjust the reward points by
+     * @return void
+     */
+    
     void adjustCustomerPoints(string id, int adjustAmount)
     {
         vector<Structures::Customer>::iterator it;
@@ -129,6 +156,13 @@ public:
         }
     }
 
+
+    /**
+     * adjusts the amount of points a product awards by a given amount
+     * @param id string that represents the id of the product
+     * @param amount int that represents the amount to adjust the reward points by
+     * @return void 
+    */
     void adjustProductPoints(string id, int newAmount)
     {
         vector<Structures::Product>::iterator it;
@@ -151,6 +185,12 @@ class DateValidator
 {
 public:
 
+
+    /**
+     * checks if a given year is a leap year
+     * @param year int that represents the year to check
+     * @return true if the year is a leap year, otherwise returns false
+    */
     bool isLeap(int year)
     {
         return (((year % 4 == 0) &&
@@ -158,6 +198,14 @@ public:
                 (year % 400 == 0));
     }
 
+
+    /**
+     * checks if a given date is valid
+     * @param month int that represents the month of the date
+     * @param day int that represents the day of the date
+     * @param year int that represents the year of the date
+     * @return true if the date is valid, otherwise returns false
+    */
     bool isValidDate(int month, int day, int year)
     {
         // If year, month and day are not in given range

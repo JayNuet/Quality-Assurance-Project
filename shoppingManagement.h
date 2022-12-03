@@ -19,6 +19,13 @@ public:
         int rewardPoints;
     };
 
+
+    /**
+     * gets all available products in the system
+     * @param data a reference to the data object for the program
+     * @return vector of products
+    */
+
     vector<Structures::Product> getAvaliableProducts(Data &data)
     {
         vector<Structures::Product> availableProducts;
@@ -36,6 +43,13 @@ public:
         return availableProducts;
     }
 
+
+    /**
+     * creates a new cart object
+     * @param customer a reference to the customer object for which this shopping cart is being created for
+     * @return ShoppingCart object
+    */
+
     ShoppingCart createNewCart(Structures::Customer customer)
     {
         ShoppingCart newCart;
@@ -44,6 +58,15 @@ public:
         newCart.rewardPoints = 0;
         return newCart;
     }
+
+
+    /**
+     * adds a product to the cart
+     * @param data a reference to the data object for the program
+     * @param avaiableItems the available products in the system
+     * @param cart the shopping cart object to add a product to
+     * @return void
+    */
 
    void addToCart(Data &data, vector<Structures::Product> &availableItems, ShoppingCart &cart)
     {
@@ -78,6 +101,14 @@ public:
         }
     }
 
+
+    /**
+     * empties the cart and returns the items to the system
+     * @param data a reference to the data object for the program
+     * @param cart the shopping cart object to empty
+     * @return void
+    */
+
     void cleanCart(Data &data, ShoppingCart cart)
     {
         for (auto cartItem : cart.cartItems)
@@ -85,6 +116,13 @@ public:
             data.adjustStock(cartItem.id, (cartItem.availableItems + 1));
         }
     }
+
+
+    /**
+     * displays all the products in the shopping cart
+     * @param cart the shopping cart object to display
+     * @return void
+    */
 
     void displayCart(ShoppingCart &cart)
     {
@@ -96,6 +134,13 @@ public:
         cout << "Total: " << cart.cartTotal << endl;
     }
 
+
+    /**
+     * removes a product from the cart
+     * @param data a reference to the data object for the program
+     * @param cart the shopping cart object to remove a product from
+     * @return void
+    */
     void removeFromCart(Data &data, ShoppingCart &cart)
     {
         string input;
@@ -133,6 +178,14 @@ public:
         }
     }
 
+
+    /**
+     * generates a unique transaction id
+     * @param data a reference to the data object for the program
+     * @param predicate 
+     * @param length 
+     * @return string representing the transaction id
+    */
     string generate_transaction_id(Data &data, string predicate, int length)
     {
         string id = "";
@@ -159,6 +212,14 @@ public:
         }
     }
 
+
+    /**
+     * checks out the shopping cart. generates a new transaction and adds it to the transaction data
+     * @param data a reference to the data object for the program
+     * @param cart the shopping cart object to checkout
+     * @return void
+    */
+
     void checkoutShoppingCart(Data &data, ShoppingCart &cart)
     {
         Structures::Transaction transaction;
@@ -175,6 +236,13 @@ public:
         transaction.total = cart.cartTotal;
     }
 
+
+    /**
+     * redeem areward points for a product
+     * @param data a reference to the data object for the program
+     * @param currentUser the current logged in user to redeem points for
+     * @return void
+    */
     void redeemRewards(Data &data, Structures::Customer &currentUser)
     {
         Structures::Transaction transaction;
