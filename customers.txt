@@ -1,0 +1,8 @@
+customer 1 ID CID0191660121
+customer 1 user name jabeznuet123
+customer 1 first name Jabe
+customer 1 last name Nuet
+customer 1 date of birth 11-09-1999
+customer 1 cc info 1234-2345-3333
+customer 1 total reward points -100
+-

@@ -11,8 +11,8 @@ Names: Jabez Nuetey, Michael Gerges, Shabura Daniel
 #include "data.h"
 #include "textFileManagement.h"
 #include "customerManagement.h"
-#include "productManagement.h"
 #include "shoppingManagement.h"
+#include "productManagement.h"
 
 using namespace std;
 
@@ -184,7 +184,7 @@ void shoppingMenu(Data &data, Structures::Customer &currentUser)
     bool running = true;
     while (running)
     {
-        prods.list_available_products(data, availableProducts);
+        prods.list_available_products(data, shopSession, availableProducts);
         cout << "\n";
         int selection;
         cout << "\n"
@@ -193,7 +193,6 @@ void shoppingMenu(Data &data, Structures::Customer &currentUser)
              << "   2. Remove Product from Cart\n"
              << "   3. View Cart\n"
              << "   4. Checkout\n"
-             << "   5. Redeem Rewards\n"
              << "   0. Quit\n"
              << "Enter a number to select: " << endl;
         cin >> selection;
@@ -201,6 +200,8 @@ void shoppingMenu(Data &data, Structures::Customer &currentUser)
 
         switch (selection){
             case 0:
+                cout << "Goodbye" << endl;
+                shopSession.cleanCart(data, shoppingCart);
                 running = false;
                 break;
             case 1:
@@ -218,6 +219,8 @@ void shoppingMenu(Data &data, Structures::Customer &currentUser)
                 WriteFileData(data, productsFile);
                 ReadFileData(data, customersFile);
                 ReadFileData(data, productsFile);
+                currentUser = data.findCustomerById(currentUser.id);
+                shoppingCart = shopSession.createNewCart(currentUser);
                 break;
             default:
                 cout << "Invalid option" << endl;

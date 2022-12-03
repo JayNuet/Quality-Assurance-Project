@@ -9,7 +9,6 @@ Names: Jabez Nuetey, Michael Gerges, Shabura Daniel
 #include <iomanip>
 #include "data.h"
 
-
 using namespace std;
 
 class productHandler
@@ -216,19 +215,9 @@ public:
         }
     }
 
-    void list_available_products(Data &data, vector<Structures::Product> &availableProducts)
+    void list_available_products(Data &data, ShopHandler &shopSession, vector<Structures::Product> &availableProducts)
     {
-        for (auto product : data.productData)
-        {
-            if (product.availableItems > 0)
-            {
-                availableProducts.push_back(product);
-            }
-            else
-            {
-                continue;
-            }
-        }
+        availableProducts = shopSession.getAvaliableProducts(data);
         cout << "\nAvailable Products:\n";
         for (auto product : availableProducts)
         {

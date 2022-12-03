@@ -89,7 +89,7 @@ public:
         }
         else
         {
-            cout << "Invalid input: Your username must contain between 8-17 characters followed by at most 3 letters." << endl;
+            cout << "Invalid input: Your username must contain between 8-17 characters followed by at most 3 numbers." << endl;
             return false;
         }
     }

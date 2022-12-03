@@ -6,7 +6,7 @@ Names: Jabez Nuetey, Michael Gerges, Shabura Daniel
 #include "data.h"
 #include <vector>
 
-using namespace std;
+// using namespace std;
 
 class ShopHandler
 {
@@ -18,6 +18,23 @@ public:
         double cartTotal;
         int rewardPoints;
     };
+
+    vector<Structures::Product> getAvaliableProducts(Data &data)
+    {
+        vector<Structures::Product> availableProducts;
+        for (auto product : data.productData)
+        {
+            if (product.availableItems > 0)
+            {
+                availableProducts.push_back(product);
+            }
+            else
+            {
+                // Do nothing
+            }
+        }
+        return availableProducts;
+    }
 
     ShoppingCart createNewCart(Structures::Customer customer)
     {
@@ -58,6 +75,14 @@ public:
                 cart.rewardPoints += product.rewardAmount;
                 displayCart(cart);
             }
+        }
+    }
+
+    void cleanCart(Data &data, ShoppingCart cart)
+    {
+        for (auto cartItem : cart.cartItems)
+        {
+            data.adjustStock(cartItem.id, (cartItem.availableItems + 1));
         }
     }
 
@@ -170,7 +195,7 @@ public:
             transaction.customerId = currentUser.id;
             transaction.id = generate_transaction_id(data, "TG", 5);
             transaction.pointsAwarded = 0;
-            int newCustomerPoints = currentUser.rewardPoints - points;
+            int newCustomerPoints = currentUser.rewardPoints + points;
             data.adjustCustomerPoints(transaction.customerId, newCustomerPoints);
             transaction.total = total;
 

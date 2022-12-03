@@ -1,0 +1,6 @@
+product 1 ID P89722
+product 1 name Momo
+product 1 price 20
+product 1 total items in store 7
+product 1 points awarded 50
+-
