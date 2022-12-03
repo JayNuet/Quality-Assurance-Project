@@ -17,6 +17,12 @@ class CustomerHandler
 {
 public:
 
+
+    /**
+     * Adss a new customer to the data
+     * @param data current data
+     * @return void
+    */
     void registerCustomer(Data &data)
     {
         Structures::Customer newCustomer;
@@ -30,6 +36,12 @@ public:
         data.customerData.push_back(newCustomer);
     }
 
+
+    /**
+     * Generates a new customer id
+     * @param data current data
+     * @return string new customer id
+    */
     string generate_customer_id(Data &data)
     {
         string id = "";
@@ -42,6 +54,13 @@ public:
         return validate_customer_id(data, "CID" + id);
     }
 
+
+    /**
+     * Validates a customer id, if it is already in use, it will generate a new one
+     * @param data current data
+     * @param id customer id
+     * @return string validated customer id
+    */
     string validate_customer_id(Data &data, string id)
     {
         bool valid = none_of(data.customerData.begin(), data.customerData.end(), [&id](Structures::Customer customer){
@@ -56,6 +75,12 @@ public:
         }
     }
 
+
+    /**
+     * Inputs a username
+     * @param data current data
+     * @return string username
+    */
     string input_username(Data &data)
     {
         string input;
@@ -71,6 +96,13 @@ public:
         }
     }
 
+
+    /**
+     * Validates a username, if it is already in use, it will ask for a new one
+     * @param data current data
+     * @param username username
+     * @return bool if username is valid
+    */
     bool validate_username(Data &data, string username)
     {
         regex username_matcher = regex("^([a-zA-Z]{8,17})([0-9]{0,3})$");
@@ -94,6 +126,12 @@ public:
         }
     }
 
+
+    /**
+     * Inputs a name
+     * @param type first or last
+     * @return string name
+    */
     string input_name(string nameType)
     {
         string input;
@@ -109,6 +147,13 @@ public:
         }
     }
 
+
+
+    /**
+     * Validates a name, checks if it is only letters is less than 15 characters
+     * @param name name
+     * @return bool if name is valid
+    */
     bool validate_name(string name)
     {
         regex number_matcher = regex("([0-9])");
@@ -134,6 +179,11 @@ public:
     }
 
 
+    /**
+     * Inputs a date of birth
+     * @return string date of birth
+    */
+
     string input_dob()
     {
         string input;
@@ -150,6 +200,12 @@ public:
     }
 
 
+
+    /**
+     * Validates a date of birth, checks if it is in the correct format
+     * @param dob date of birth
+     * @return bool if date of birth is valid
+    */
     bool validate_dob(string dateOfBirth)
     {
         DateValidator dateValidator;
@@ -179,6 +235,12 @@ public:
     }
 
 
+    /**
+     * Inputs a credit card number
+     * @return string credit card number
+    */
+
+
     string input_card(Data &data)
     {
         string input;
@@ -196,6 +258,12 @@ public:
         }
     }
 
+
+    /**
+     * Validates a credit card number, checks if it is in the correct format and unique
+     * @param card credit card number
+     * @return bool if credit card number is valid
+    */
 
     bool validate_card(Data &data, string cardNumber)
     {
@@ -218,6 +286,12 @@ public:
         }
     }
 
+
+    /**
+     * inputs starting customer reward points
+     * @return int reward points
+    */
+
     int input_points()
     {
         string input;
@@ -233,6 +307,12 @@ public:
         }
     }
 
+
+    /**
+     * Validates starting customer reward points
+     * @param points reward points
+     * @return bool if reward points are valid
+    */
     bool validate_points(string str)
     {
         regex numbersMatcher = regex("^([0-9])+$");
@@ -247,6 +327,12 @@ public:
         }
     }
 
+
+    /**
+     * displays customer information by customer id
+     * @param data all customer data
+     * @return void
+    */
     void find_customer(Data &data)
     {
         string currentInput;
@@ -272,6 +358,12 @@ public:
         }
     }
 
+
+    /**
+     * removes customer from data by customer id
+     * @param data all customer data
+     * @return void
+    */
     void remove_customer(Data &data)
     {
         string currentInput;

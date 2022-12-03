@@ -20,10 +20,17 @@ string customersFile = "customers.txt";
 string productsFile = "products.txt";
 string transactionsFile = "transactions.txt";
 
+// Function Prototypes
 void customerMenu(Data &data, Structures::Customer &currentUser);
 void shoppingMenu(Data &data, Structures::Customer &currentUser);
 void rewardsMenu(Data &data, Structures::Customer &currentUser);
 
+
+/**
+ * read appropriate files and store data in Data object
+ * @param filepath filepath string
+ * @return boolean value indicating success or failure of reading the file
+*/
 
 bool ReadFileData(Data &data, string filePath)
 {
@@ -109,6 +116,14 @@ bool WriteFileData(Data &data, string filePath)
     return true;
 }
 
+
+/**
+ * customer login function, checks if a username exists and if it does, 
+ * uses it as the currently logged in customer
+ * @param data data object
+ * @return no return value
+ * 
+*/
 void customerLogin(Data &data)
 {
     Structures::Customer currentUser;
@@ -143,6 +158,14 @@ void customerLogin(Data &data)
     }
 }
 
+/**
+ * customer menu function, displays the customer menu and allows the user to 
+ * navigate through the menu
+ * @param data data object
+ * @param currentUser currently logged in customer
+ * @return no return value
+ * 
+*/
 void customerMenu(Data &data, Structures::Customer &currentUser)
 {
     bool running = true;
@@ -174,6 +197,15 @@ void customerMenu(Data &data, Structures::Customer &currentUser)
         };
     }
 }
+
+/**
+ * shopping menu function, displays the shopping menu and allows the user to 
+ * navigate through the menu
+ * @param data data object
+ * @param currentUser currently logged in customer
+ * @return no return value
+ * 
+*/
 
 void shoppingMenu(Data &data, Structures::Customer &currentUser)
 {
@@ -229,6 +261,16 @@ void shoppingMenu(Data &data, Structures::Customer &currentUser)
     }
 }
 
+
+/**
+ * rewards menu function, displays the rewards menu and allows the user to 
+ * navigate through the menu
+ * @param data data object
+ * @param currentUser currently logged in customer
+ * @return no return value
+ * 
+*/
+
 void rewardsMenu(Data &data, Structures::Customer &currentUser)
 {
     ShopHandler shopSession;
@@ -262,6 +304,11 @@ void rewardsMenu(Data &data, Structures::Customer &currentUser)
     }
 }
 
+
+/**
+ * main function, program entry point
+ * @return int EXIT_SUCCESS
+*/
 
 int main(){
     Data data;
