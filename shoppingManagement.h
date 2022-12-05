@@ -186,6 +186,7 @@ public:
      * @param length 
      * @return string representing the transaction id
     */
+   
     string generate_transaction_id(Data &data, string predicate, int length)
     {
         string id = "";
@@ -197,6 +198,14 @@ public:
         }
         return validate_transaction_id(data, predicate, length, predicate + id);
     }
+
+    /**
+     * validates transactions id after they ahave been generated
+     * @param data a reference to the data object for the program
+     * @param predicate 
+     * @param length 
+     * @return string representing the transaction id
+    */
 
     string validate_transaction_id(Data &data, string predicate, int length, string id)
     {
@@ -243,6 +252,7 @@ public:
      * @param currentUser the current logged in user to redeem points for
      * @return void
     */
+
     void redeemRewards(Data &data, Structures::Customer &currentUser)
     {
         Structures::Transaction transaction;

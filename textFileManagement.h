@@ -206,7 +206,7 @@ private:
 
 
     /**
-     * getes the last value of a line
+     * gets the last value of a line
      * @param valueString the string to parse
      * @param delimiter the delimiter to use
      * @return the last value of the string
@@ -222,6 +222,12 @@ private:
         }
         return valueString;
     }
+
+    /**
+     *Function reads product ids from the transaction file and pushes to productId vector.
+     * @param valueString the string to parse
+     * @return a vector of productIds
+    */
 
     vector<string> parseTransactionProducts(string valueString)
     {
