@@ -199,7 +199,7 @@ void customerMenu(Data &data, Structures::Customer &currentUser)
 }
 
 /**
- * shopping menu function, displays the shopping menu and allows the user to 
+ * shopping menu function, displays the shopping menu and allows the user to
  * navigate through the menu
  * @param data data object
  * @param currentUser currently logged in customer

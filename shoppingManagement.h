@@ -239,7 +239,7 @@ public:
             transaction.productIds.push_back(product.id);
         }
         transaction.pointsAwarded = cart.rewardPoints;
-        int newCustomerPoints = cart.customer.rewardPoints - cart.rewardPoints;
+        int newCustomerPoints = cart.customer.rewardPoints + cart.rewardPoints;
         cart.customer.rewardPoints = newCustomerPoints;
         data.adjustCustomerPoints(transaction.customerId, newCustomerPoints);
         transaction.total = cart.cartTotal;
